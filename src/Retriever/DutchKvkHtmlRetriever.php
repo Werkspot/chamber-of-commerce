@@ -65,6 +65,7 @@ class DutchKvkHtmlRetriever implements ChamberOfCommerceRetriever
     }
 
     /**
+     * @param $chamberOfCommerceNumber
      * @param Response $response
      * @throws UnexpectedHttpStatusCodeException
      */
@@ -174,11 +175,17 @@ class DutchKvkHtmlRetriever implements ChamberOfCommerceRetriever
     protected function normalizeHouseNumberAddition($number)
     {
         $matches = array();
-        if (preg_match('/(\w+.*)$/', $number, $matches) === 1) {
-            return $this->trim($matches[1]);
+        if (!preg_match('/(\w+.*)$/', $number, $matches) === 1) {
+            return null;
         }
 
-        return null;
+        $addition = $this->trim($matches[1]);
+
+        if (is_numeric($addition)) {
+            return abs($addition);
+        }
+
+        return $addition;
     }
 
     /**
