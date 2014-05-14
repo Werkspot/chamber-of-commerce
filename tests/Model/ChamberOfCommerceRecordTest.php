@@ -12,6 +12,7 @@ class ChamberOfCommerceRecordTest extends PHPUnit_Framework_TestCase
      *
      * @param string|int $number
      * @param string $name
+     * @param $countryCode
      * @param string $zipCode
      * @param string $city
      * @param string $streetName

@@ -34,6 +34,7 @@ class ChamberOfCommerceRecord
     /**
      * @param string|int $number
      * @param string $name
+     * @param string $countryCode
      * @param string $zipCode
      * @param string $city
      * @param string $streetName

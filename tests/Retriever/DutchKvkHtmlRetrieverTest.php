@@ -14,11 +14,18 @@ use Werkspot\Component\ChamberOfCommerce\Model\ChamberOfCommerceRecord;
 class DutchKvkHtmlRetrieverTest extends PHPUnit_Framework_TestCase
 {
     const URL = 'https://server.db.kvk.nl/TST-BIN/FU/TSWS001@?BUTT=';
-    
+
     /**
      * @dataProvider getValidChamberOfCommerceNumbers
      *
      * @param string|int $number
+     * @param string $name
+     * @param string $zipCode
+     * @param string $city
+     * @param string $streetName
+     * @param int $houseNumber
+     * @param mixed $houseNumberAddition
+     * @param string $internetAddress
      */
     public function testFindWithValidChamberOfCommerceNumber($number, $name, $zipCode, $city, $streetName, $houseNumber, $houseNumberAddition, $internetAddress)
     {
@@ -175,7 +182,8 @@ class DutchKvkHtmlRetrieverTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param Response $response
+     * @param $number
+     * @param int $statusCode
      * @return Client
      */
     private function getClientThatReturnsResponseChamberOfCommerceDataWithStatusCode($number, $statusCode = 200)
