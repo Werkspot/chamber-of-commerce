@@ -101,7 +101,7 @@ class ChamberOfCommerceParser implements ChamberOfCommerceResponseParser
     protected function normalizeHouseNumberAddition($number)
     {
         $matches = array();
-        if (!preg_match('/(\w+.*)$/', $number, $matches) === 1) {
+        if (!preg_match('/(\w+.*)$/', $number, $matches)) {
             return null;
         }
 
