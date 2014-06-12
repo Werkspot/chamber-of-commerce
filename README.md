@@ -1,3 +1,5 @@
+Master: [![Build Status](https://secure.travis-ci.org/Werkspot/chamber-of-commerce.png?branch=master)](https://travis-ci.org/Werkspot/chamber-of-commerce)
+
 ## Installation
 
 Add to composer using:
