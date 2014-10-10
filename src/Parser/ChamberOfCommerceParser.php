@@ -29,7 +29,7 @@ class ChamberOfCommerceParser implements ChamberOfCommerceResponseParser
                     $name = $propertyValue;
                     break;
                 case 'kvk-nummer':
-                    $fetchedChamberOfCommerceNumber = $propertyValue;
+                    $fetchedChamberOfCommerceNumber = substr($propertyValue, 0, 8);
                     break;
                 case 'internetadres':
                     $internetAddress = $propertyValue;
