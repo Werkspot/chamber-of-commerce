@@ -149,7 +149,7 @@ class ChamberOfCommerceParser implements ChamberOfCommerceResponseParser
      */
     protected function validateChamberOfCommerceNumberOrThrowException($requestedChamberOfCommerceNumber, $fetchedChamberOfCommerceNumber)
     {
-        if (empty($fetchedChamberOfCommerceNumber) || $requestedChamberOfCommerceNumber != $fetchedChamberOfCommerceNumber) {
+        if (empty($fetchedChamberOfCommerceNumber) || strpos($requestedChamberOfCommerceNumber, $fetchedChamberOfCommerceNumber) !== 0) {
             throw new NotFoundException($requestedChamberOfCommerceNumber);
         }
     }

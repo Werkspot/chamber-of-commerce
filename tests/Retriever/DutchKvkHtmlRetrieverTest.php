@@ -55,6 +55,19 @@ class DutchKvkHtmlRetrieverTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testFindWithValidChamberOfCommerceNumber_thatReturnsTheFirstEightCharactersOfChamberOfCommerceNumber()
+    {
+        $chamberOfCommerceNumber = '180800510000';
+        $expectedChamberOfCommerceNumber = '18080051';
+
+        $client = $this->getClientThatReturnsResponseChamberOfCommerceDataWithStatusCode($chamberOfCommerceNumber);
+
+        $retriever = new DutchKvkHtmlRetriever($client, self::URL);
+        $givenChamberOfCommerce = $retriever->find($chamberOfCommerceNumber);
+
+        $this->assertSame($expectedChamberOfCommerceNumber, $givenChamberOfCommerce->getNumber());
+    }
+
     /**
      * @expectedException \Werkspot\Component\ChamberOfCommerce\Exception\ServiceUnavailableException
      * @expectedExceptionMessage server.db.kvk.nl
